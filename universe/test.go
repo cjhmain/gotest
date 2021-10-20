@@ -23,11 +23,11 @@ type Pos struct{
 }
 
 func newUniverse() Universe {
-	var cells Universe
+	var un Universe
 	for i := 0; i < height; i++ {
-		cells = append(cells, make([]bool, width))
+		un = append(un, make([]bool, width))
 	}
-	return cells
+	return un
 }
 
 func (un Universe)show() {
@@ -65,14 +65,12 @@ func getNeighbour(h, w int) []Pos {
 
 	for i := 0; i < 3; i++ {
 		trueH := sourceH + i
-		if trueH < 0 {
+		if trueH < 0 || trueH >= height {
 			continue
 		}
 		for j := 0; j < 3; j++ {
 			trueW := sourceW + j
-			if trueH >= 0 &&
-			trueW >= 0 &&
-			trueH < height &&
+			if trueW >= 0 &&
 			trueW < width &&
 			(trueH != h || trueW != w) {
 				if index < MinNeighbourNum {
@@ -132,15 +130,15 @@ func (un Universe)round() {
 func Test(){
 	fmt.Println("-------------------- submodule universe --------------------")
 
-	cells := newUniverse()
-	cells.seed()
-	cells.show()
+	un := newUniverse()
+	un.seed()
+	un.show()
 	
 	index := 1
 	for {
 		fmt.Println("universe round ", index)
-		cells.round()
-		cells.show()
+		un.round()
+		un.show()
 		index++
 		if index > 10 {
 			break
