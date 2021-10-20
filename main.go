@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"un/universe"
+	"gotest/universe"
 )
 
 func main() {
