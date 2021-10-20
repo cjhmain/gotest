@@ -25,7 +25,7 @@ type Pos struct{
 func newUniverse() Universe {
 	var cells Universe
 	for i := 0; i < height; i++ {
-		cells = append(cells, make([]bool, width+1))
+		cells = append(cells, make([]bool, width))
 	}
 	return cells
 }
