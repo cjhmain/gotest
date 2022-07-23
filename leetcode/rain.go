@@ -1,5 +1,5 @@
 /*
-	力扣练习题：接雨水
+	接雨水
 */
 package leetcode
 
